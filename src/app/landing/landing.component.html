@@ -1,0 +1,30 @@
+<h1>Landing Page</h1>
+<div class = "row">
+  <div class = "col">
+<!--FirstNumber-->
+{{First}}
+  </div>
+  <div class = "col">
+<!--SecondNumber-->
+{{Second}}
+  </div>
+  <div class = "col">
+<!--Answer-->
+{{Answer}}
+  </div>
+  <div class = "col">
+<!--Locked Rating Control-->
+<ngb-rating [(rate)]="RandomRating1" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="!readonly"></ngb-rating>
+  </div>
+  <div class = "col">
+<!--Locked Rating Control-->
+<ngb-rating max= "12" [rate] = "RandomRating2" [readonly]="!readonly"></ngb-rating>
+  </div>
+  <div class = "col">
+<!--Button With random number between 10k and 50k-->
+<button class="btn btn-default" type="button" routerLink = "/main">{{RandomNumber}}</button>
+<!--Takes user to Main Page-->
+
+  </div>
+
+</div>

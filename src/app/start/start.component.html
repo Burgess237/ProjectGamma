@@ -1,0 +1,26 @@
+<h1>Start Page</h1>
+
+<div class="row justify-content-md-center">
+  <div class = "col col-lg-2">
+    First Number <input  [(ngModel)] = "MathValues.First">
+  </div>
+<div class = "col col-lg-2">
+    Second Number <input  [(ngModel)] = "MathValues.Second">
+  </div>
+ <div class = "col col-lg-2">Operation
+    <select [(ngModel)]="MathValues.Operand" >
+      <option *ngFor="let x of Operands" (click) = "Calculate()">
+        {{x}}</option>
+    </select>
+  </div>
+  <div class="col col-lg-2">
+    Answer<input [(ngModel)] = "MathValues.UserAnswer">
+  </div>
+  <div class="col col-lg-2" *ngIf="Calccheck">
+    <button class="btn btn-default" type="button" id="login" routerLink = "/landing">Login</button>
+  </div>
+</div>
+<div class="row justify-content-md-center" >
+  <button class="btn btn-default" type="button" id="checkAnswer" (click) = "Calculate()">Check Answer</button>
+</div>
+

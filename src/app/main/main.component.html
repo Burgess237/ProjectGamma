@@ -1,0 +1,8 @@
+<ngb-accordion activeIds="static-1">
+  <ngb-panel  *ngFor=" let x of Accordians; let x = index" id="static-{{index}}" title="[{{x}}] - {{x}}">
+    <ng-template ngbPanelContent>
+       <app-content></app-content>
+       <!--Insert random number here to send to content?-->
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
