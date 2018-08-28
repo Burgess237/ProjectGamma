@@ -9,6 +9,8 @@ import { R3Injector } from '../../../node_modules/@angular/core/src/di/r3_inject
 })
 export class ContentComponent implements OnInit {
 htmlData: any;
+content: any;
+
 
 RandomWords = ['nulla', 'amet', 'eiusmod', 'aliqua', 'nostrud', 'enim', 'nostrud', 'elit', 'fugiat' , 'id', +
                 'proident', 'aliquip', 'laborum', 'sunt', 'do', 'ea', 'cillum', 'mollit', 'eiusmod', 'ex', 'labore', +
@@ -23,14 +25,26 @@ RandomWords = ['nulla', 'amet', 'eiusmod', 'aliqua', 'nostrud', 'enim', 'nostrud
 
 rowHeader = '<div class = "container"><div class = "row">';
 colHeader = '<div class = "col-md">';
-content = this.RNJesus();
+
 colFooter = '</div>';
 rowFooter = '</div></div>';
+html = this.rowHeader + this.colHeader + this.Generate() + this.colFooter + this.rowFooter;
 
-
-
-html = this.rowHeader + this.colHeader + this.content + this.colFooter + this.rowFooter;
-
+Random = Math.random() * 50;
+// this statement doesnt work
+Generate() {
+if (this.Random < 12.5) {
+    return '1st Group';
+  } else if (this.Random > 12.5 && this.Random < 25) {
+    return '2nd Group';
+  } else if (this.Random > 25 && this.Random < 37.5) {
+    return '3rd group';
+  } else if (this.Random > 37.5 && this.Random < 50) {
+    return this.RNJesus();
+  }   else {
+    return 'This isnt working';
+  }
+}
 
   constructor(private sanitizer: DomSanitizer) { }
 
