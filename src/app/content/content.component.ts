@@ -1,6 +1,7 @@
 import { DomSanitizer } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { R3Injector } from '../../../node_modules/@angular/core/src/di/r3_injector';
+import { load } from '../../../node_modules/@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-content',
@@ -10,8 +11,10 @@ import { R3Injector } from '../../../node_modules/@angular/core/src/di/r3_inject
 export class ContentComponent implements OnInit {
 htmlData: any;
 content: any;
-
-
+head: any;
+footer: any;
+Random = Math.random() * 50 + 24;
+ProgressBarHtml: any;
 RandomWords = ['nulla', 'amet', 'eiusmod', 'aliqua', 'nostrud', 'enim', 'nostrud', 'elit', 'fugiat' , 'id', +
                 'proident', 'aliquip', 'laborum', 'sunt', 'do', 'ea', 'cillum', 'mollit', 'eiusmod', 'ex', 'labore', +
                 'sint', 'exercitation', 'non', 'non', 'aliqua', 'ullamco', 'excepteur', 'non', 'ex', 'pariatur', +
@@ -28,9 +31,10 @@ colHeader = '<div class = "col-md">';
 
 colFooter = '</div>';
 rowFooter = '</div></div>';
+
 html = this.rowHeader + this.colHeader + this.Generate() + this.colFooter + this.rowFooter;
 
-Random = Math.random() * 50;
+
 // this statement doesnt work
 Generate() {
 if (this.Random < 12.5) {
@@ -40,7 +44,7 @@ if (this.Random < 12.5) {
   } else if (this.Random > 25 && this.Random < 37.5) {
     return '3rd group';
   } else if (this.Random > 37.5 && this.Random < 50) {
-    return this.RNJesus();
+    return this.RandomWordGenerator();
   }   else {
     return 'This isnt working';
   }
@@ -49,10 +53,22 @@ if (this.Random < 12.5) {
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.html);
+    this.htmlData = this.sanitizer.bypassSecurityTrustHtml(this.ProgressBarHtml);
   }
+// how to make a random progress bar with html sanitizer
+  RandomProgressBarGenerator() {
+    this.head = '<div class="progress">' +
+    '<div class="progress-bar" role="progressbar" style="width: ';
+    this.content = Math.random() * 50 + 24;
+    this.footer = '%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>' +
+    '</div>';
+    this.ProgressBarHtml = this.head + this.content + this.footer;
+    return this.ProgressBarHtml;
+    }
 
-  RNJesus(): any {
+
+  // random word generator
+  RandomWordGenerator(): any {
     return this.RandomWords[parseInt(' ' +  Math.random() * 50, 10)];
   }
 }

@@ -18,6 +18,16 @@ myAccordian = this.Accordians[0];
     config.type = 'info';
     config.closeOthers = false;
    }
+i: any;
+num = Math.random() * 8 + 2;
+items: number[] = [];
+
+   createRange(number) {
+    for ( this.i = 1; this.i <= number; this.i++) {
+       this.items.push(this.i);
+    }
+    return this.items;
+  }
 
   ngOnInit() {
   }
