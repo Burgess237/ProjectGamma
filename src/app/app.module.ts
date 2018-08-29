@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MainComponent } from './main/main.component';
 import { ContentComponent } from './content/content.component';
+import { RowGeneratorComponent } from './row-generator/row-generator.component';
 
 const appRoutes: Routes = [
 {path: 'start', component: StartComponent},
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     StartComponent,
     LandingComponent,
     MainComponent,
-    ContentComponent
+    ContentComponent,
+    RowGeneratorComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

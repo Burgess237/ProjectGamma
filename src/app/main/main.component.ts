@@ -22,14 +22,15 @@ i: any;
 num = Math.random() * 8 + 2;
 items: number[] = [];
 
-   createRange(number) {
-    for ( this.i = 1; this.i <= number; this.i++) {
+   createRange() {
+    for ( this.i = 1; this.i <= this.num; this.i++) {
        this.items.push(this.i);
     }
     return this.items;
   }
 
   ngOnInit() {
+    this.createRange();
   }
 
 }

@@ -1,8 +1,8 @@
 <ngb-accordion activeIds="1">
-  <ngb-panel  *ngFor=" let x of createRange(num) let x = index" id="{{index}}" title="accordion">
+  <ngb-panel  *ngFor=" let x of items; let x = index" id="{{index}}" title="accordion">
     <ng-template ngbPanelContent>
-       <app-content></app-content>
-       <!--Insert random number here to send to content?-->
+      <!--row Generator-->
+       <app-row-generator></app-row-generator>
     </ng-template>
   </ngb-panel>
 </ngb-accordion>
