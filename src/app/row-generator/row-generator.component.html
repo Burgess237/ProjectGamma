@@ -1,3 +1,7 @@
-<div [innerHTML] = 'htmlData'>
+<div class = "row" *ngFor=" let x of RowArr">
+    Rows
+    <div class = "col" *ngFor=" let x of CowArr">
+        Columns
+        <app-content></app-content>
+    </div>
 </div>
-<p>Row Generator Works</p>
